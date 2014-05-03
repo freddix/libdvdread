@@ -1,11 +1,11 @@
 Summary:	Library to read DVD images
 Name:		libdvdread
-Version:	4.2.1
+Version:	4.9.9
 Release:	1
 License:	GPL
 Group:		Libraries
 Source0:	http://dvdnav.mplayerhq.hu/releases/%{name}-%{version}.tar.xz
-# Source0-md5:	68cf65b46478ff894be6e91d97dae41a
+# Source0-md5:	1aa8ad88e462791a8e77d628a63ee788
 URL:		http://dvdnav.mplayerhq.hu
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -45,6 +45,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}
+
 %post   -p /usr/sbin/ldconfig
 %postun -p /usr/sbin/ldconfig
 
@@ -54,7 +57,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README AUTHORS TODO NEWS
-%attr(755,root,root) %{_bindir}/dvdread-config
 %attr(755,root,root) %ghost %{_libdir}/lib*.so.?
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 
@@ -62,6 +64,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_includedir}/dvdread
-%{_aclocaldir}/*.m4
 %{_pkgconfigdir}/*.pc
 
