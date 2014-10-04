@@ -1,11 +1,13 @@
 Summary:	Library to read DVD images
 Name:		libdvdread
-Version:	4.9.9
+Version:	5.0.0
 Release:	1
 License:	GPL
 Group:		Libraries
+# git clone git://git.videolan.org/libdvdread.git
+# git archive --format=tar --prefix=libdvdread-5.0.0/ 5.0.0 | xz -c > libdvdread-5.0.0.tar.xz
 Source0:	http://dvdnav.mplayerhq.hu/releases/%{name}-%{version}.tar.xz
-# Source0-md5:	1aa8ad88e462791a8e77d628a63ee788
+# Source0-md5:	ecb7dca5944e0ecd672b236db88e7a02
 URL:		http://dvdnav.mplayerhq.hu
 BuildRequires:	autoconf
 BuildRequires:	automake
